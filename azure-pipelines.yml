@@ -7,16 +7,18 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
 - checkout: self
-- task: PowerShell@2
+- task: AzureCLI@2
   inputs:
-    targetType: 'inline'
-    script: |
+    azureSubscription: 'Azure Pass - Sponsorship'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
       # Navigate to the directory containing the Bicep file
-      cd vm28.bicep
+      cd $(System.DefaultWorkingDirectory)/path/to/bicep/file
       
       # Compile the Bicep file
       az bicep build -f vm28.bicep
