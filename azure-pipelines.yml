@@ -13,6 +13,6 @@ steps:
 - checkout: self
 
 - script: |
-    az bicep build ./vm28.bicep
+    az bicep build $(System.DefaultWorkingDirectory)/vm28.bicep
   displayName: 'Validate the syntax using Azure CLI'
 
