@@ -18,6 +18,6 @@ steps:
 
 - script: |
     echo Deploying resources to Azure
-    az login
-    az deployment group create --resource-group bicep --template-file $(Build.SourcesDirectory)/vm28.bicep
+    az login 
+    az deployment group create --resource-group bicep1 --template-file $(Build.SourcesDirectory)/vm28.bicep
   displayName: 'Deploy the resources to Azure'
