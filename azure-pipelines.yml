@@ -16,3 +16,8 @@ steps:
     az bicep build --file $(Build.SourcesDirectory)/vm28.bicep
   displayName: 'Validate the syntax using CLI'
 
+- script: |
+    echo Deploying resources to Azure
+    az login 
+    az deployment group create --resource-group rg6 --template-file vm28.bicep 
+  displayName: 'Deploy to Azure'
