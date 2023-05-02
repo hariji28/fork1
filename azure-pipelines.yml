@@ -14,5 +14,5 @@ steps:
 
 - script: |
     az bicep build $(Build.SourcesDirectory)/vm28.bicep
-  displayName: 'Validate syntax using Azure Bicep CLI'
+  displayName: 'Validate the syntax using Azure CLI'
 
