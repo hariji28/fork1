@@ -19,7 +19,3 @@ steps:
     az bicep build --template-file vm28.bicep 
   displayName: 'Validate syntax'
 
-- script: |
-    echo Deploying resources to Azure...
-    az deployment group create --template-file vm28.bicep 
-  displayName: 'Deploy to Azure'
