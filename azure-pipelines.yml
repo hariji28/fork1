@@ -7,21 +7,19 @@ trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: ubuntu-latest
 
 steps:
 - checkout: self
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'Azure Pass - Sponsorship'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: |
-      # Navigate to the directory containing the Bicep file
-      cd $(System.DefaultWorkingDirectory)/path/to/bicep/file
-      
-      # Compile the Bicep file
-      az bicep build -f vm28.bicep
-      
-      # Deploy the ARM template
-      az deployment group create -f vm28.bicep -g rg6
+  path: tempfile
+
+- script: |
+    cd tempfile
+    echo Validating the syntax...
+    az bicep build --template-file vm28.bicep 
+  displayName: 'Validate syntax'
+
+- script: |
+    echo Deploying resources to Azure...
+    az deployment group create --template-file vm28.bicep 
+  displayName: 'Deploy to Azure'
