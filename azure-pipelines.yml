@@ -7,15 +7,12 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 steps:
 - checkout: self
-  path: tempfile
 
 - script: |
-    cd tempfile
-    echo Validating the syntax...
-    az bicep build --template-file vm28.bicep 
-  displayName: 'Validate syntax'
+    az bicep build --file $(Build.SourcesDirectory)/vm28.bicep
+  displayName: 'Validate syntax using Azure Bicep CLI'
 
