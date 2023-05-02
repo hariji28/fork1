@@ -16,7 +16,7 @@ steps:
     targetType: 'inline'
     script: |
       # Navigate to the directory containing the Bicep file
-      #cd path/to/bicep/file
+      cd vm28.bicep
       
       # Compile the Bicep file
       az bicep build -f vm28.bicep
