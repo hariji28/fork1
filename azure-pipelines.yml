@@ -13,11 +13,11 @@ steps:
 - checkout: self
 
 - script: |
-    az deployment group validate --resourse-group vm12.json
+    az login
+    az deployment group validate --resourse-group ARM1 --template-file vm12.json
   displayName: 'Validate the syntax using CLI'
 
 - script: |
     echo Deploying resources to Azure
-    az login 
     az deployment group create --resource-group ARM1 --template-file vm12.json
   displayName: 'Deploy the resources to Azure'
