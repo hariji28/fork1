@@ -13,11 +13,11 @@ steps:
 - checkout: self
 
 - script: |
-    az bicep build --file $(Build.SourcesDirectory)/vm28.bicep
+    az deployment group validate --resourse-group vm12.json
   displayName: 'Validate the syntax using CLI'
 
 - script: |
     echo Deploying resources to Azure
     az login 
-    az deployment group create --resource-group bicep1 --template-file $(Build.SourcesDirectory)/vm28.bicep
+    az deployment group create --resource-group ARM1 --template-file vm12.json
   displayName: 'Deploy the resources to Azure'
