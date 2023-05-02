@@ -10,10 +10,16 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- checkout: self
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Navigate to the directory containing the Bicep file
+      cd path/to/bicep/file
+      
+      # Compile the Bicep file
+      az bicep build -f vm28.bicep
+      
+      # Deploy the ARM template
+      az deployment group create -f vm28.bicep -g rg6
