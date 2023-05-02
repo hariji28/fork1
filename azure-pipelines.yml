@@ -14,7 +14,7 @@ steps:
 
 - script: |
     az login
-    az deployment group validate --resourse-group ARM1 --template-file vm12.json
+    az deployment group validate --resource-group ARM1 --template-file vm12.json
   displayName: 'Validate the syntax using CLI'
 
 - script: |
