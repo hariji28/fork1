@@ -18,9 +18,7 @@ jobs:
         az  bicep build --file vm28.bicep
 
     - name: Deploy to Azure
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-          # Add your deployment command here
-          az login
-          az deployment group create --resource-group bicep1 --template-file vm28.bicep
+      run: |
+        # Add your deployment command here
+         az login
+         az deployment group create --resource-group bicep2 --template-file vm28.bicep
