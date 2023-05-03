@@ -1,0 +1,26 @@
+name: Azure Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Validate syntax
+      run: |
+        # Add your validation command here
+        az  bicep build --file vm28.bicep
+
+    - name: Deploy to Azure
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          # Add your deployment command here
+          az login
+          az deployment group create --resource-group bicep1 --template-file vm28.bicep
