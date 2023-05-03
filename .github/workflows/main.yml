@@ -19,6 +19,6 @@ jobs:
 
     - name: Deploy to Azure
       run: |
-        # Add your deployment command here
+        # Add your deployment command 
          az login
          az deployment group create --resource-group bicep2 --template-file vm28.bicep
