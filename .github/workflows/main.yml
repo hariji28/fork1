@@ -14,11 +14,9 @@ jobs:
 
     - name: Validate syntax
       run: |
-        # Add your validation command 
         az  bicep build --file vm.bicep
 
     - name: Deploy to Azure
-      run: |
-        # Add your deployment command   
+      run: |   
          az login
          az deployment group create --resource-group bicep3 --template-file vm.bicep
