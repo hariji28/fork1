@@ -146,4 +146,3 @@ resource vm2 'Microsoft.Compute/virtualMachines@2021-03-01' = {
   }
 }
 
-
